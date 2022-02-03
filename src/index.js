@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Client, Intents } = require("discord.js");
+const { Player } = require("discord-player");
 
 const config = require("../config.json");
 
@@ -11,6 +12,16 @@ const client = new Client({
     Intents.FLAGS.GUILD_MESSAGES,
     Intents.FLAGS.GUILD_VOICE_STATES,
   ],
+});
+
+const player = new Player(client, {
+  leaveOnEnd: true,
+  leaveOnStop: true,
+  leaveOnEmpty: true,
+  leaveOnEmptyCooldown: 5000,
+  autoSelfDeaf: true,
+  initialVolume: 50,
+  bufferingTimeout: 3000,
 });
 
 client.on("ready", () => {
@@ -26,9 +37,11 @@ client.on("messageCreate", async (message) => {
   )
     return;
 
-  const args = message.content.split(" ");
+  const command = message.content.split(" ");
 
-  if (commands[args[0]]) commands[args[0]](client, message);
+  const args = message.content.slice(config.prefix.length).trim().split(/ +/);
+
+  if (commands[command[0]]) commands[command[0]](client, message, args, player);
 });
 
 client.login(process.env.BOT_TOKEN);
