@@ -7,7 +7,7 @@ I’m a very useful music bot that can make you play a music with a simple comma
 
 Commands:
 | Command | Description |
-| ------------- |:------------------------:| --------:|
+| ------------- |:--------:|
 | s!play [music name] | Play the song you want! Use **only** the number to select a music! According to the song title!|
 | s!skip | This skip command in the current song |
 | s!pause | This command pauses the music being played |
