@@ -1,3 +1,4 @@
+require("http").createServer().listen(3000);
 require("dotenv").config();
 const { Client, Intents } = require("discord.js");
 const { Player } = require("discord-player");
