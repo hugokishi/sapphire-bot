@@ -1,9 +1,8 @@
-module.exports = async (client, message, args, player) => {
-  try {
-    const queue = player.getQueue(message.guild.id);
-    queue.setPaused(false);
-    message.channel.send(`Continuando a tocar...`);
-  } catch (err) {
-    message.channel.send(`Não há nenhuma música para tocar...`);
-  }
+module.exports = async ({ client, message, args, player }) => {
+  const queue = player.getQueue(message.guild.id);
+
+  if (!queue) return;
+
+  queue.setPaused(false);
+  message.react("👌").catch(console.error);
 };
