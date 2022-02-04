@@ -4,7 +4,7 @@ const config = require("../../config.json");
 module.exports = ({ client, message }) => {
   let helpEmbed = new MessageEmbed()
     .setTitle(message.client.user.username)
-    .setDescription("Sapphire Commands:")
+    .setDescription("Comandos da Sapphire:")
     .setColor("#F8AA2A");
 
 

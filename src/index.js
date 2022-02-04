@@ -22,7 +22,8 @@ client.on("ready", () => {
 });
 
 player.on("trackStart", (queue, track) => {
-  queue.metadata.channel.send(`🎶 | Now playing **${track.title}**!`);
+  if (!queue) return;
+  queue.metadata.channel.send(`🎶 | Tocando agora **${track.title}**!`);
 });
 
 client.on("messageCreate", async (message) => {

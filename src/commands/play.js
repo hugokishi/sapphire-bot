@@ -21,7 +21,7 @@ module.exports = async ({ client, message, args, player }) => {
     .catch(() => console.error);
 
   if (!searchResult || !searchResult.tracks.length)
-    return message.reply(`Song or playlist not found :(`);
+    return message.reply(`Musíca ou playlist não encontrada :(`);
 
   const queue = await player.createQueue(message.guild.id, {
     ytdlOptions: {

@@ -2,34 +2,39 @@
   "prefix": "s!",
   "commands": [
     {
-      "name": "Help Command",
+      "name": "Comando de Ajuda",
       "aliases": "s!help",
-      "description": "The classic help command."
+      "description": "O Clássico comando de ajuda."
     },
     {
-      "name": "Play Command",
-      "aliases": "s!play [MUSIC NAME]",
-      "description": "Play the song you want! Use only the number to select a music! According to the song title!"
+      "name": "Comando de Play",
+      "aliases": "s!play [NOME_DA_MUSICA/URL_DA_MUSICA]",
+      "description": "Este comando permite você colocar música para tocar."
     },
     {
-      "name": "Skip Command",
+      "name": "Comando de pular",
       "aliases": "s!skip",
-      "description": "This skip command in the current song."
+      "description": "Este comando pula a música atual."
     },
     {
-      "name": "Pause Command",
+      "name": "Comando de pausa",
       "aliases": "s!pause",
-      "description": "This command pauses the music being played."
+      "description": "Este comando pausa a música no canal de voz."
     },
     {
-      "name": "Resume Command",
+      "name": "Comando de retomar",
       "aliases": "s!resume",
-      "description": "This command removes the music pause."
+      "description": "Este comando remove a pausa da música."
     },
     {
-      "name": "Stop Command",
+      "name": "Comando de parada",
       "aliases": "s!stop",
-      "description": "This command ends the discord party by stopping the music."
+      "description": "Este comando termina a festa no discord parando a música."
+    },
+    {
+      "name": "Comando de embaralhar",
+      "aliases": "s!shuffle",
+      "description": "Este comando embaralha a sua playlist de música tornando-a aleatória."
     }
   ]
 }
