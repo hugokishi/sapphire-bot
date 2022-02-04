@@ -29,6 +29,10 @@ client.on("ready", () => {
   client.user.setActivity("Arctic Monkeys", { type: "LISTENING" });
 });
 
+player.on("trackStart", (queue, track) => {
+  queue.metadata.channel.send(`🎶 | Now playing **${track.title}**!`);
+});
+
 client.on("messageCreate", async (message) => {
   if (
     message.author.bot ||

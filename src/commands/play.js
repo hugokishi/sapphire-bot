@@ -1,4 +1,4 @@
-module.exports = async (client, message, args, player) => {
+module.exports = async ({ client, message, args, player }) => {
   if (!message.member.voice.channel)
     return message.channel.send(
       "Para reproduzir você precisa estar em um canal de voz!"
