@@ -41,7 +41,8 @@ client.on("messageCreate", async (message) => {
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
 
-  if (commands[command[0]]) commands[command[0]](client, message, args, player);
+  if (commands[command[0]])
+    commands[command[0]]({ client, message, args, player });
 });
 
 client.login(process.env.BOT_TOKEN);

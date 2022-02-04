@@ -1,9 +1,22 @@
-module.exports = (client, msg) => {
-  msg.reply(`Você pode utilizar estes comandos: :smile:
+const { MessageEmbed } = require("discord.js");
+const config = require("../../config.json");
 
-    s!play [URL] -> Comando para reproduzir música.
-    s!stop -> Comando para parar a música atual.
-    s!skip -> Comando para pular a música que está tocando agora.
-    s!queue -> Comando para ver a fila de espera de música.
-  `);
+module.exports = ({ client, message }) => {
+  let helpEmbed = new MessageEmbed()
+    .setTitle(message.client.user.username)
+    .setDescription("Sapphire Commands:")
+    .setColor("#F8AA2A");
+
+
+  config.commands.forEach((command) => {
+    helpEmbed.addField(
+      `**${command.name} (${command.aliases})**`,
+      `${command.description}`,
+      false
+    );
+  });
+
+  helpEmbed.setTimestamp();
+
+  return message.channel.send({ embeds: [helpEmbed] }).catch(console.error);
 };
