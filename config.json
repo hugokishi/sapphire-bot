@@ -1,3 +1,35 @@
 {
-  "prefix": "s!"
+  "prefix": "s!",
+  "commands": [
+    {
+      "name": "Help Command",
+      "aliases": "s!help",
+      "description": "The classic help command."
+    },
+    {
+      "name": "Play Command",
+      "aliases": "s!play [MUSIC NAME]",
+      "description": "Play the song you want! Use only the number to select a music! According to the song title!"
+    },
+    {
+      "name": "Skip Command",
+      "aliases": "s!skip",
+      "description": "This skip command in the current song."
+    },
+    {
+      "name": "Pause Command",
+      "aliases": "s!pause",
+      "description": "This command pauses the music being played."
+    },
+    {
+      "name": "Resume Command",
+      "aliases": "s!resume",
+      "description": "This command removes the music pause."
+    },
+    {
+      "name": "Stop Command",
+      "aliases": "s!stop",
+      "description": "This command ends the discord party by stopping the music."
+    }
+  ]
 }
