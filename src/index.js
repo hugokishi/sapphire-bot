@@ -36,6 +36,7 @@ client.on("messageCreate", async (message) => {
   const command = message.content.split(" ");
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  args.splice(0, 1);
 
   if (commands[command[0]])
     commands[command[0]]({ client, message, args, player });

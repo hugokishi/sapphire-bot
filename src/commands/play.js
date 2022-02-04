@@ -6,7 +6,7 @@ module.exports = async ({ client, message, args, player }) => {
       "Para reproduzir você precisa estar em um canal de voz!"
     );
 
-  const search_music = message.content.split("play ")[1].split(" ")[0];
+  const search_music = args.join(" ");
 
   if (!search_music)
     return message.channel.send(
@@ -44,7 +44,7 @@ module.exports = async ({ client, message, args, player }) => {
     });
   }
 
-  await message.react({
+  await message.reply({
     content: `⏱ | Carregando sua ${
       searchResult.playlist ? "playlist" : "música"
     }...`,
