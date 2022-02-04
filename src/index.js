@@ -14,15 +14,7 @@ const client = new Client({
   ],
 });
 
-const player = new Player(client, {
-  leaveOnEnd: true,
-  leaveOnStop: true,
-  leaveOnEmpty: true,
-  leaveOnEmptyCooldown: 5000,
-  autoSelfDeaf: true,
-  initialVolume: 50,
-  bufferingTimeout: 3000,
-});
+const player = new Player(client);
 
 client.on("ready", () => {
   console.log(`Sapphire Bot is ready to go! ${client.user.tag}`);
