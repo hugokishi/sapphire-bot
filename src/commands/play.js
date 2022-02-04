@@ -32,7 +32,7 @@ module.exports = async ({ client, message, args, player }) => {
       requestedBy: message.author,
     })
     .then((x) => x.tracks[0]);
-  client.user.setActivity(song.title, { type: "LISTENING" });
+
   if (!song)
     return message.reply(`Erro ao procurar música: ${search_music}!!!`);
   queue.play(song);
