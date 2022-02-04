@@ -3,6 +3,6 @@ module.exports = async ({ client, message, args, player }) => {
 
   if (!queue || !queue.playing) return;
 
-  queue.stop();
+  queue.destroy();
   return message.react(`👌`).catch(console.error);
 };
