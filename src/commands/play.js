@@ -1,16 +1,34 @@
+const { QueryType } = require("discord-player");
+
 module.exports = async ({ client, message, args, player }) => {
   if (!message.member.voice.channel)
     return message.channel.send(
       "Para reproduzir você precisa estar em um canal de voz!"
     );
 
-  const search_music = args.join(" ");
+  const search_music = message.content.split("play ")[1].split(" ")[0];
+
   if (!search_music)
     return message.channel.send(
       "Para reproduzir você precisa digitar o nome ou a url da música!"
     );
 
-  const queue = player.createQueue(message.guild.id, {
+  const searchResult = await player
+    .search(search_music, {
+      requestedBy: message.author,
+      searchEngine: QueryType.AUTO,
+    })
+    .catch(() => console.error);
+
+  if (!searchResult || !searchResult.tracks.length)
+    return message.reply(`Song or playlist not found :(`);
+
+  const queue = await player.createQueue(message.guild.id, {
+    ytdlOptions: {
+      filter: "audioonly",
+      highWaterMark: 1 << 30,
+      dlChunkSize: 0,
+    },
     metadata: {
       channel: message.channel,
     },
@@ -20,22 +38,21 @@ module.exports = async ({ client, message, args, player }) => {
     if (!queue.connection) await queue.connect(message.member.voice.channel);
   } catch (error) {
     queue.destroy();
-    console.error(error);
     return await message.reply({
-      content: "Não foi possivel reproduzir!",
+      content: "Não foi possível reproduzir a música :(",
       ephemeral: true,
     });
   }
 
-  const song = await player
-    .search(search_music, {
-      requestedBy: message.author,
-    })
-    .then((x) => x.tracks[0]);
+  await message.react({
+    content: `⏱ | Carregando sua ${
+      searchResult.playlist ? "playlist" : "música"
+    }...`,
+  });
 
-  if (!song)
-    return message.reply(`Erro ao procurar música: ${search_music}!!!`);
-  queue.play(song);
+  searchResult.playlist
+    ? queue.addTracks(searchResult.tracks)
+    : queue.addTrack(searchResult.tracks[0]);
 
-  message.channel.send({ content: `⏳ | Buscando... **${song.title}**!` });
+  if (!queue.playing) await queue.play();
 };
