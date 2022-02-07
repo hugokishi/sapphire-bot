@@ -5,9 +5,6 @@ module.exports = ({ client, message }) => {
   let helpEmbed = new MessageEmbed()
     .setTitle(message.client.user.username)
     .setDescription("Comandos da Sapphire:")
-    .setThumbnail(
-      "https://cdn.discordapp.com/attachments/938978246702293014/940074030327820298/photo.jpg"
-    )
     .setColor("#F8AA2A");
 
   config.commands.forEach((command) => {
