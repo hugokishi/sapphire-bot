@@ -8,6 +8,7 @@
     "start:dev": "nodemon src/index.js"
   },
   "dependencies": {
+    "@discord-player/extractor": "^3.0.2",
     "discord-player": "^5.2.2",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",

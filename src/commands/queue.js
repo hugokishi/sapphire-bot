@@ -21,7 +21,7 @@ module.exports = async ({ client, message, args, player }) => {
               ? `\n...${queue.tracks.length - pageEnd} músicas`
               : ""
           }`,
-          color: 0xff0000,
+          color: "#F8AA2A",
           fields: [
             {
               name: "Tocando Agora",
