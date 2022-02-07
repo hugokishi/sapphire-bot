@@ -35,6 +35,21 @@
       "name": "Comando de embaralhar",
       "aliases": "s!shuffle",
       "description": "Este comando embaralha a sua playlist de música tornando-a aleatória."
+    },
+    {
+      "name": "Comando de limpar",
+      "aliases": "s!clear",
+      "description": "Este comando limpa a lista de música."
+    },
+    {
+      "name": "Comando de listar músicas",
+      "aliases": "s!queue",
+      "description": "Este comando mostra a lista de música e sua ordem."
+    },
+    {
+      "name": "Comando de letras",
+      "aliases": "s!lyrics",
+      "description": "Este comando mostra a letra da música que está tocando no momento."
     }
   ]
 }
