@@ -1,4 +1,4 @@
----
+
 Hello.
 
 I’m a very useful music bot that can make you play a music with a simple command! I have a lot of good commands that you can have a better experience playing your favorites songs!
@@ -12,8 +12,5 @@ Commands:
 | s!resume | This command removes the music pause |
 | s!stop | This command ends the discord party by stopping the music |
 | s!help | The classic help command |
-
----
-
 
 
