@@ -1,5 +1,3 @@
-![alt text](https://cdn.discordapp.com/attachments/938633344462237768/938765405919535124/welcome.png "Welcome!")
-
 ---
 Hello.
 
