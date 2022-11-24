@@ -11,9 +11,8 @@ Commands:
 | s!pause | Pauses the current playing song |
 | s!resume | Resumes the current playing song |
 | s!stop | Stops the music |
-| s!help | Help command |
-
-  
+| s!help | Help command |  
+    
   
 ### Olá! <h3>
 Sou Sapphire, um bot de música. Meu objetivo é tornar a experiência musical no Discord fácil, dinâmica e intrigante.
