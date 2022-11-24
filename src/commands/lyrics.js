@@ -16,7 +16,7 @@ module.exports = async ({ client, message, args, player }) => {
         {
           title: `Letra da música - ${currentTrack.title}`,
           description: `${lyrics.lyrics}`,
-          color: "#F8AA2A",
+          color: "#EBA6A9",
         },
       ],
     })

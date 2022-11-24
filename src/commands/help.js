@@ -5,7 +5,8 @@ module.exports = ({ client, message }) => {
   let helpEmbed = new MessageEmbed()
     .setTitle(message.client.user.username)
     .setDescription("Comandos da Sapphire:")
-    .setColor("#F8AA2A");
+    .setFont(25)
+    .setColor("#EBA6A9");
 
   config.commands.forEach((command) => {
     helpEmbed.addField(
