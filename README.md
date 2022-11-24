@@ -13,7 +13,6 @@ Commands:
 | s!stop | Stops the music |
 | s!help | Help command |  
 <br>
-<br>
 ### Olá! <h3>
 Sou Sapphire, um bot de música. Meu objetivo é tornar a experiência musical no Discord fácil, dinâmica e intrigante.
 
