@@ -1,16 +1,27 @@
 
-Hello.
-
-I’m a very useful music bot that can make you play a music with a simple command! I have a lot of good commands that you can have a better experience playing your favorites songs!
+EN ##### Hello!
+I’m Sapphire, a music bot. My goal is to make the music experience on Discord easy, dinamic and intriguing.
 
 Commands:
 | Command | Description |
 | ------------- |:--------:|
-| s!play [music name] | Play the song you want! Use **only** the number to select a music! According to the song title!|
-| s!skip | This skip command in the current song |
-| s!pause | This command pauses the music being played |
-| s!resume | This command removes the music pause |
-| s!stop | This command ends the discord party by stopping the music |
-| s!help | The classic help command |
+| s!play [music name] | Play the song you want! |
+| s!skip | Skips the current song |
+| s!pause | Pauses the current playing song |
+| s!resume | Resumes the current playing song |
+| s!stop | Stops the music |
+| s!help | Help command |
 
+BR ##### Olá!
+Sou Sapphire, um bot de música. Meu objetivo é tornar a experiência musical no Discord fácil, dinâmica e intrigante.
+
+Commandos:
+| Commando | Descrição |
+| ------------- |:--------:|
+| s!play [música] | Toque sua música! |
+| s!skip | Passe para a próxima música |
+| s!pause | Pause a música atual |
+| s!resume | Remova o pause da música atual |
+| s!stop | Pare a música |
+| s!help | Comando para ajuda |
 
