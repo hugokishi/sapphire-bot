@@ -4,12 +4,12 @@
     {
       "name": "Comando de Ajuda",
       "aliases": "s!help",
-      "description": "O Clássico comando de ajuda."
+      "description": "O clássico comando de ajuda."
     },
     {
       "name": "Comando de Play",
       "aliases": "s!play [NOME_DA_MUSICA/URL_DA_MUSICA]",
-      "description": "Este comando permite você colocar música para tocar."
+      "description": "Este comando permite tocar uma música."
     },
     {
       "name": "Comando de pular",
@@ -19,37 +19,42 @@
     {
       "name": "Comando de pausa",
       "aliases": "s!pause",
-      "description": "Este comando pausa a música no canal de voz."
+      "description": "Este comando pausa a música atual."
     },
     {
       "name": "Comando de retomar",
       "aliases": "s!resume",
-      "description": "Este comando remave a pausa da música."
+      "description": "Este comando remove a pausa da música atual."
     },
     {
       "name": "Comando de parada",
       "aliases": "s!stop",
-      "description": "Esse comando termina a festa no discord parando a música."
+      "description": "Esse comando para a música."
     },
     {
       "name": "Comando de embaralhar",
       "aliases": "s!shuffle",
-      "description": "Este comando embaralha a sua playlist de música tornando-a aleatória."
+      "description": "Este comando embaralha a sua playlist, tornando-a aleatória."
     },
     {
       "name": "Comando de limpar",
       "aliases": "s!clear",
-      "description": "Este comando limpa a lista de música."
+      "description": "Este comando limpa a fila de música."
     },
     {
       "name": "Comando de listar músicas",
       "aliases": "s!queue",
-      "description": "Este comando mostra a lista de música e sua ordem."
+      "description": "Este comando mostra a fila de música."
     },
     {
-      "name": "Comando de letras",
+      "name": "Comando de letra",
       "aliases": "s!lyrics",
-      "description": "Este comando mostra a letra da música que está tocando no momento."
+      "description": "Este comando mostra a letra da música atual."
+    },
+    {
+      "name": "Comando de Bass Boosted",
+      "aliases": "s!basboost",
+      "description": "Este comando adiciona bass boosted à música atual."
     }
   ]
 }
