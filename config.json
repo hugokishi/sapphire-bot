@@ -24,12 +24,12 @@
     {
       "name": "Comando de retomar",
       "aliases": "s!resume",
-      "description": "Este comando remove a pausa da música."
+      "description": "Este comando remave a pausa da música."
     },
     {
       "name": "Comando de parada",
       "aliases": "s!stop",
-      "description": "Este comando termina a festa no discord parando a música."
+      "description": "Esse comando termina a festa no discord parando a música."
     },
     {
       "name": "Comando de embaralhar",
