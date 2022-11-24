@@ -1,6 +1,6 @@
 
 EN 
-## Hello! <h2>
+### Hello! <h3>
 I’m Sapphire, a music bot. My goal is to make the music experience on Discord easy, dinamic and intriguing.
 
 Commands:
@@ -14,7 +14,7 @@ Commands:
 | s!help | Help command |
 
 BR 
-## Olá! <h2>
+### Olá! <h3>
 Sou Sapphire, um bot de música. Meu objetivo é tornar a experiência musical no Discord fácil, dinâmica e intrigante.
 
 Comandos:
