@@ -33,12 +33,7 @@ module.exports = {
         })`;
       });
 
-    interaction.reply({
-      content: "Aqui esta a fila de música",
-      ephemeral: true,
-    });
-
-    return interaction.channel.send({
+    return interaction.reply({
       embeds: [
         {
           title: "Server Queue",

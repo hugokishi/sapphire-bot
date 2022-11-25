@@ -11,7 +11,7 @@ module.exports = {
     .setDescription("Este comando permite tocar uma música.")
     .addStringOption((option) =>
       option
-        .setName("musica")
+        .setName("música")
         .setDescription("Inserir o nome da música que deseja tocar")
         .setRequired(true)
     ),
@@ -23,7 +23,7 @@ module.exports = {
    * @param {Player} player
    */
   run: async (interaction, client, player) => {
-    const search_music = interaction.options.get("musica");
+    const search_music = interaction.options.get("música");
 
     const searchResult = await player
       .search(search_music.value, {
