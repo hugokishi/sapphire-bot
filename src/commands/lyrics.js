@@ -10,6 +10,8 @@ module.exports = async ({ client, message, args, player }) => {
 
   const lyrics = await lyricsClient.search(currentTrack.title);
 
+  if (!lyrics) return message.reply("Letra não encontrada :(");
+
   return message.channel
     .send({
       embeds: [

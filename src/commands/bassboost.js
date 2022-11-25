@@ -5,7 +5,7 @@ module.exports = async ({ client, message, args, player }) => {
 
   await queue.setFilters({
     bassboost: !queue.getFiltersEnabled().includes("bassboost"),
-    normalizer2: !queue.getFiltersEnabled().includes("bassboost"), // because we need to toggle it with bass
+    normalizer2: !queue.getFiltersEnabled().includes("bassboost"),
   });
   message.react("👌").catch(console.error);
 };
