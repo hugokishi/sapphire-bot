@@ -13,6 +13,7 @@
     "discord.js": "14.4.0",
     "dotenv": "^16.0.0",
     "ffmpeg-static": "^4.4.1",
+    "mongoose": "^6.7.3",
     "nodemon": "^2.0.15",
     "opusscript": "^0.0.8",
     "soundcloud-scraper": "^5.0.3",
