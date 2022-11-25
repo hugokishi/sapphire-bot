@@ -1,18 +1,44 @@
-module.exports = async ({ client, message, args, player }) => {
-  const queue = player.getQueue(message.guild.id);
+const { Player } = require("discord-player");
+const {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  Client,
+} = require("discord.js");
 
-  if (!queue || !queue.playing) return;
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("queue")
+    .setDescription("Este comando mostra a fila de música."),
 
-  const pageStart = 10 * (1 - 1);
-  const pageEnd = pageStart + 10;
-  const currentTrack = queue.current;
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   * @param {Player} player
+   */
+  run: async (interaction, client, player) => {
+    const queue = player.getQueue(interaction.guildId);
 
-  const tracks = queue.tracks.slice(pageStart, pageEnd).map((music, index) => {
-    return `${index + pageStart + 1}. **${music.title}** - ${music.author})`;
-  });
+    if (!queue || !queue.playing) return;
 
-  return message.channel
-    .send({
+    const pageStart = 10 * (1 - 1);
+    const pageEnd = pageStart + 10;
+    const currentTrack = queue.current;
+
+    const tracks = queue.tracks
+      .slice(pageStart, pageEnd)
+      .map((music, index) => {
+        return `${index + pageStart + 1}. **${music.title}** - ${
+          music.author
+        })`;
+      });
+
+    interaction.reply({
+      content: "Aqui esta a fila de música",
+      ephemeral: true,
+    });
+
+    return interaction.channel.send({
       embeds: [
         {
           title: "Server Queue",
@@ -21,7 +47,6 @@ module.exports = async ({ client, message, args, player }) => {
               ? `\n...${queue.tracks.length - pageEnd} músicas`
               : ""
           }`,
-          color: "#EBA6A9",
           fields: [
             {
               name: "Tocando Agora",
@@ -30,6 +55,6 @@ module.exports = async ({ client, message, args, player }) => {
           ],
         },
       ],
-    })
-    .catch(console.error);
+    });
+  },
 };

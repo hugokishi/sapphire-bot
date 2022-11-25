@@ -1,11 +1,31 @@
-module.exports = async ({ client, message, args, player }) => {
-  const queue = player.getQueue(message.guild.id);
+const { Player } = require("discord-player");
+const {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  Client,
+} = require("discord.js");
 
-  if (!queue || !queue.playing) return;
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("bassboost")
+    .setDescription("Este comando adiciona bass boosted à música atual."),
 
-  await queue.setFilters({
-    bassboost: !queue.getFiltersEnabled().includes("bassboost"),
-    normalizer2: !queue.getFiltersEnabled().includes("bassboost"),
-  });
-  message.react("👌").catch(console.error);
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   * @param {Player} player
+   */
+  run: async (interaction, client, player) => {
+    const queue = player.getQueue(interaction.guildId);
+
+    if (!queue || !queue.playing) return;
+
+    await queue.setFilters({
+      bassboost: !queue.getFiltersEnabled().includes("bassboost"),
+      normalizer2: !queue.getFiltersEnabled().includes("bassboost"),
+    });
+
+    return interaction.reply({ content: "👌", ephemeral: true });
+  },
 };

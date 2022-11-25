@@ -1,58 +1,75 @@
-const { QueryType } = require("discord-player");
+const { Player, QueryType } = require("discord-player");
+const {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  Client,
+} = require("discord.js");
 
-module.exports = async ({ client, message, args, player }) => {
-  if (!message.member.voice.channel)
-    return message.channel.send(
-      "Para reproduzir você precisa estar em um canal de voz!"
-    );
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("play")
+    .setDescription("Este comando permite tocar uma música.")
+    .addStringOption((option) =>
+      option
+        .setName("musica")
+        .setDescription("Inserir o nome da música que deseja tocar")
+        .setRequired(true)
+    ),
 
-  const search_music = args.join(" ");
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   * @param {Player} player
+   */
+  run: async (interaction, client, player) => {
+    const search_music = interaction.options.get("musica");
 
-  if (!search_music)
-    return message.channel.send(
-      "Para reproduzir você precisa digitar o nome ou a url da música!"
-    );
+    const searchResult = await player
+      .search(search_music.value, {
+        requestedBy: interaction.user.username,
+        searchEngine: QueryType.AUTO,
+      })
+      .catch(() => console.error);
 
-  const searchResult = await player
-    .search(search_music, {
-      requestedBy: message.author,
-      searchEngine: QueryType.AUTO,
-    })
-    .catch(() => console.error);
+    if (!searchResult || !searchResult.tracks.length)
+      return interaction.reply({
+        content: "Não foi possivel encontrar essa musica",
+        ephemeral: true,
+      });
 
-  if (!searchResult || !searchResult.tracks.length)
-    return message.reply(`Musíca ou playlist não encontrada :(`);
-
-  const queue = await player.createQueue(message.guild.id, {
-    ytdlOptions: {
-      filter: "audioonly",
-      highWaterMark: 1 << 30,
-      dlChunkSize: 0,
-    },
-    metadata: {
-      channel: message.channel,
-    },
-  });
-
-  try {
-    if (!queue.connection) await queue.connect(message.member.voice.channel);
-  } catch (error) {
-    queue.destroy();
-    return await message.reply({
-      content: "Não foi possível reproduzir a música :(",
-      ephemeral: true,
+    const queue = player.createQueue(interaction.guildId, {
+      ytdlOptions: {
+        filter: "audioonly",
+        highWaterMark: 1 << 30,
+        dlChunkSize: 0,
+      },
+      metadata: {
+        channel: interaction.channel,
+      },
     });
-  }
 
-  await message.reply({
-    content: `⏱ | Carregando sua ${
-      searchResult.playlist ? "playlist" : "música"
-    }...`,
-  });
+    try {
+      if (!queue.connection)
+        await queue.connect(interaction.member.voice.channel);
+    } catch (error) {
+      queue.destroy();
+      return await interaction.reply({
+        content: "Não foi possível reproduzir a música :(",
+        ephemeral: true,
+      });
+    }
 
-  searchResult.playlist
-    ? queue.addTracks(searchResult.tracks)
-    : queue.addTrack(searchResult.tracks[0]);
+    await interaction.reply({
+      content: `⏱ | Carregando sua ${
+        searchResult.playlist ? "playlist" : "música"
+      }...`,
+    });
 
-  if (!queue.playing) await queue.play();
+    searchResult.playlist
+      ? queue.addTracks(searchResult.tracks)
+      : queue.addTrack(searchResult.tracks[0]);
+
+    if (!queue.playing) await queue.play();
+  },
 };

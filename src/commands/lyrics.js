@@ -1,26 +1,53 @@
+const { Player } = require("discord-player");
+const {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  Client,
+} = require("discord.js");
 const { Lyrics } = require("@discord-player/extractor");
 const lyricsClient = Lyrics.init("");
 
-module.exports = async ({ client, message, args, player }) => {
-  const queue = player.getQueue(message.guild.id);
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("lyrics")
+    .setDescription("Este comando mostra a letra da música atual."),
 
-  if (!queue || !queue.playing) return;
+  /**
+   *
+   * @param {ChatInputCommandInteraction} interaction
+   * @param {Client} client
+   * @param {Player} player
+   */
+  run: async (interaction, client, player) => {
+    const queue = player.getQueue(interaction.guildId);
 
-  const currentTrack = queue.current;
+    if (!queue || !queue.playing) return;
 
-  const lyrics = await lyricsClient.search(currentTrack.title);
+    const currentTrack = queue.current;
 
-  if (!lyrics) return message.reply("Letra não encontrada :(");
+    const lyrics = await lyricsClient.search(currentTrack.title);
 
-  return message.channel
-    .send({
-      embeds: [
-        {
-          title: `Letra da música - ${currentTrack.title}`,
-          description: `${lyrics.lyrics}`,
-          color: "#EBA6A9",
-        },
-      ],
-    })
-    .catch(console.error);
+    if (!lyrics)
+      return interaction.reply({
+        content: "Letra não encontrada :(",
+        ephemeral: true,
+      });
+
+    interaction.reply({
+      content: "Aqui esta a letra da música",
+      ephemeral: true,
+    });
+
+    return interaction.channel
+      .send({
+        embeds: [
+          {
+            title: `Letra da música - ${currentTrack.title}`,
+            description: `${lyrics.lyrics}`,
+            color: "#EBA6A9",
+          },
+        ],
+      })
+      .catch(console.error);
+  },
 };
