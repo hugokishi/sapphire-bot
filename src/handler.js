@@ -16,11 +16,17 @@ module.exports = async (client, commandsPath, player) => {
   });
 
   client.on("ready", () => {
-    const guild = client.guilds.cache.get("1045155476146495498");
+    client.guilds.cache.forEach(async (gld) => {
+      console.log(
+        `sapphire Bot is setting the commands on the server: ${gld.name}, ${gld.id}`
+      );
 
-    if (guild) return guild.commands.set(commands);
+      const guild = client.guilds.cache.get(gld.id);
 
-    return client.application.commands.set(commands);
+      if (guild) return guild.commands.set(commands);
+
+      return client.application.commands.set(commands);
+    });
   });
 };
 
