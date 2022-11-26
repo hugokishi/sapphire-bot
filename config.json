@@ -54,7 +54,7 @@
     {
       "name": "Comando de Bass Boosted",
       "aliases": "s!basboost",
-      "description": "Este comando adiciona bass boosted à música atual."
+      "description": "Este comando adiciona bass boost à música atual."
     }
   ]
 }

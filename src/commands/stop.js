@@ -22,6 +22,6 @@ module.exports = {
     if (!queue || !queue.playing) return;
 
     queue.destroy();
-    return interaction.reply({ content: "Parando de tocar" });
+    return interaction.reply({ content: "👋 | Parando de tocar" });
   },
 };

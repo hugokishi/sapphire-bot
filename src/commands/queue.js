@@ -36,7 +36,7 @@ module.exports = {
     return interaction.reply({
       embeds: [
         {
-          title: "Server Queue",
+          title: "Fila",
           description: `${tracks.join("\n")}${
             queue.tracks.length > pageEnd
               ? `\n...${queue.tracks.length - pageEnd} músicas`

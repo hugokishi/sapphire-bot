@@ -23,7 +23,7 @@ module.exports = {
    * @param {Player} player
    */
   run: async (interaction, client, player) => {
-    const search_music = interaction.options.get("música");
+    const search_music = interaction.options.get("música/url");
 
     const searchResult = await player
       .search(search_music.value, {
@@ -34,7 +34,7 @@ module.exports = {
 
     if (!searchResult || !searchResult.tracks.length)
       return interaction.reply({
-        content: "Não foi possivel encontrar essa musica",
+        content: "Não foi possível encontrar essa música :(",
         ephemeral: true,
       });
 

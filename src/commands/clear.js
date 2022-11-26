@@ -22,6 +22,6 @@ module.exports = {
     if (!queue || !queue.playing) return;
 
     queue.clear();
-    return interaction.reply({ content: "Limpando a fila" });
+    return interaction.reply({ content: "🧹 | Limpando a fila" });
   },
 };

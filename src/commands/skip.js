@@ -22,6 +22,6 @@ module.exports = {
     if (!queue || !queue.playing) return;
 
     queue.skip();
-    return interaction.reply({ content: "Pulando para a próxima música" });
+    return interaction.reply({ content: "⏭ | Pulando para a próxima música" });
   },
 };

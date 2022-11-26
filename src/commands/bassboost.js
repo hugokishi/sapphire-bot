@@ -8,7 +8,7 @@ const {
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("bassboost")
-    .setDescription("Este comando adiciona bass boosted à música atual."),
+    .setDescription("Este comando adiciona bass boost à música atual."),
 
   /**
    *
@@ -26,6 +26,6 @@ module.exports = {
       normalizer2: !queue.getFiltersEnabled().includes("bassboost"),
     });
 
-    return interaction.reply({ content: "👌", ephemeral: true });
+    return interaction.reply({ content: "🔊 | Adicionando bass" });
   },
 };

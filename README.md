@@ -6,12 +6,18 @@ I’m Sapphire, a music bot. My goal is to make the music experience on Discord 
 Commands:
 | Command | Description |
 | ------------- |:--------:|
+| s!help | Help command | 
 | s!play [music name] | Play the song you want! |
 | s!skip | Skips the current song |
 | s!pause | Pauses the current playing song |
-| s!resume | Resumes the current playing song |
+| s!resume | Resumes the current paused song |
 | s!stop | Stops the music |
-| s!help | Help command |  
+| s!queue | Shows the music queue |
+| s!shuffle | Shuffle the queue |
+| s!clear | Clears the queue |
+| s!lyrics | Shows lyrics for the current song |
+| s!bassboost | Add bass boos to current song |
+ 
 
 ____
 ____
@@ -22,10 +28,17 @@ Sou Sapphire, um bot de música. Meu objetivo é tornar a experiência musical n
 Comandos:
 | Comando | Descrição |
 | ------------- |:--------:|
+| s!help | Comando para ajuda |
 | s!play [música] | Toque sua música! |
 | s!skip | Passe para a próxima música |
 | s!pause | Pause a música atual |
 | s!resume | Remova o pause da música atual |
 | s!stop | Pare a música |
-| s!help | Comando para ajuda |
+| s!queue | Mostra a fila de música |
+| s!shuffle | Embaralha a sua playlist |
+| s!clear | Limpa a fila de música |
+| s!lyrics | Mostra a letra da música atual |
+| s!bassboost | Adiciona bass boost à música atual |
+
+
 

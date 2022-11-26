@@ -34,7 +34,7 @@ module.exports = {
       });
 
     interaction.reply({
-      content: "Aqui esta a letra da música",
+      content: "🧾 | Aqui está a letra da música",
       ephemeral: true,
     });
 

@@ -24,6 +24,6 @@ module.exports = {
     if (!queue || !queue.playing) return;
 
     queue.shuffle();
-    return interaction.reply({ content: "Embaralhando as musicas" });
+    return interaction.reply({ content: "🔀 | Embaralhando as músicas" });
   },
 };

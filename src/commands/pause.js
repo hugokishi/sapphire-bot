@@ -22,6 +22,6 @@ module.exports = {
     if (!queue || !queue.playing) return;
 
     queue.setPaused(true);
-    return interaction.reply({ content: "Pausando a música" });
+    return interaction.reply({ content: "⏯ | Pausando a música" });
   },
 };
